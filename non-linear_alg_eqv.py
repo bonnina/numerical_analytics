@@ -36,7 +36,7 @@ class Alg_eqv:
         return approximations[-1]
 
     def chord(self, left, right, eps):
-        print("\n\nnCalling chord method for interval [" + str(left) + ", " + str(right) +"].\n")
+        print("\n\nCalling chord method for interval [" + str(left) + ", " + str(right) +"].\n")
         f = self.function
         approximations = [left]
         iter = 1
@@ -54,17 +54,13 @@ class Alg_eqv:
         return x_k
 
 def polynom(x):
-    return x**4 - 4*x**3 + 4*x**2 + 3 * x - 3
-
+    return x**5-3*x**4+7*x**2-9
 def dpoly(x):
-    return 4*x**3 - 12*x**2 + 8*x + 3
+    return 5*x**4-12*x**3+14*x
 
 f = Alg_eqv(polynom)
 f.set_derivative(dpoly)
 
-print("Bisection method result:", "%.6f" % f.bisection(-1, 0, 0.00001))
-print("Bisection method result:", "%.6f" % f.bisection(0, 1, 0.00001))
-print("Chord method result:", "%.6f" % f.chord(-1, 0, 0.00001))
-print("Chord method result:", "%.6f" % f.chord(0, 1, 0.00001))
-print("Newton method result:", "%.6f" % f.newton(-1, 0.00001))
-print("Newton method result:", "%.6f" % f.newton(1, 0.00001))
+print("Bisection method result:", "%.6f" % f.bisection(1, 2, 0.00001))
+print("Chord method result:", "%.6f" % f.chord(1, 2, 0.00001))
+print("Newton method result:", "%.6f" % f.newton(2, 0.00001))
